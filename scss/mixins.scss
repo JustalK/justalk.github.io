@@ -1,0 +1,11 @@
+@mixin font($folder,$name,$local,$weight,$style) {
+    font-family: $name;
+    src: url("../font/#{$folder}/#{$name}.eot");
+    src: local($local), local($name),
+        url('../font/#{$folder}/#{$name}.eot?#iefix') format('embedded-opentype'),
+        url('../font/#{$folder}/#{$name}.woff2') format('woff2'),
+        url('../font/#{$folder}/#{$name}.woff') format('woff'),
+        url('../font/#{$folder}/#{$name}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+}

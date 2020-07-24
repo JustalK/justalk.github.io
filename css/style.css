@@ -1,4 +1,76 @@
-/* line 1, ../scss/style.scss */
+@font-face {
+  font-family: "GothamSSm-Book";
+  src: url("../font/gothamSS/GothamSSm-Book.eot");
+  src: local("GothamSSm Book"), local("GothamSSm-Book"), url("../font/gothamSS/GothamSSm-Book.eot?#iefix") format("embedded-opentype"), url("../font/gothamSS/GothamSSm-Book.woff2") format("woff2"), url("../font/gothamSS/GothamSSm-Book.woff") format("woff"), url("../font/gothamSS/GothamSSm-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothamSSm-Black";
+  src: url("../font/gothamSS/GothamSSm-Black.eot");
+  src: local("GothamSSm Black"), local("GothamSSm-Black"), url("../font/gothamSS/GothamSSm-Black.eot?#iefix") format("embedded-opentype"), url("../font/gothamSS/GothamSSm-Black.woff2") format("woff2"), url("../font/gothamSS/GothamSSm-Black.woff") format("woff"), url("../font/gothamSS/GothamSSm-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Maitree-Regular";
+  src: url("../font/maitree/Maitree-Regular.eot");
+  src: local("Maitree Regular"), local("Maitree-Regular"), url("../font/maitree/Maitree-Regular.eot?#iefix") format("embedded-opentype"), url("../font/maitree/Maitree-Regular.woff2") format("woff2"), url("../font/maitree/Maitree-Regular.woff") format("woff"), url("../font/maitree/Maitree-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 15, ../scss/style.scss */
 body {
-  color: white;
+  margin: 0;
+}
+
+/* line 19, ../scss/style.scss */
+#intro {
+  position: relative;
+  background: #222;
+  height: 100vh;
+  min-height: 500px;
+}
+/* line 25, ../scss/style.scss */
+#intro div {
+  padding: 4rem 20% 0;
+  text-align: center;
+}
+/* line 29, ../scss/style.scss */
+#intro div .logo {
+  width: 80%;
+}
+/* line 33, ../scss/style.scss */
+#intro div .description {
+  font-family: "GothamSSm-Black", Arial, sans-serif;
+  display: block;
+  text-transform: uppercase;
+  margin: 3.5rem;
+  color: #ffffff;
+}
+/* line 41, ../scss/style.scss */
+#intro div .excerpt {
+  font-family: "Maitree-Regular", Arial, sans-serif;
+  text-align: justify;
+  color: #a7a7a7;
+}
+/* line 46, ../scss/style.scss */
+#intro div .excerpt::first-line {
+  text-indent: 2rem;
+}
+/* line 50, ../scss/style.scss */
+#intro div .excerpt::first-letter {
+  color: #fcd116;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+/* line 59, ../scss/style.scss */
+#intro .avatar {
+  position: absolute;
+  border-radius: 50%;
+  width: 260px;
+  height: 260px;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(50%) translateX(-50%);
 }
