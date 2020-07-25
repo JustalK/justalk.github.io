@@ -66,3 +66,45 @@ body {
 	    transform: translateY(50%) translateX(-50%);
 	}
 }
+
+
+
+#category {
+	margin: 200px 20%;
+	
+	& span {
+		font-family: "GothamSSm-Black", Arial, sans-serif;
+	    text-align: center;
+	    display: block;
+	    text-transform: uppercase;
+	    color: #fcd116;
+	    margin-bottom: 2rem;
+	    font-size: 1.5rem;
+	}
+	
+	& ul {
+	    list-style-type: none;
+	    margin: 0 20%;
+	    padding: 0;
+		cursor: pointer;
+		
+		& li {
+			font-family: "Maitree-Regular", Arial, sans-serif;
+			padding: 1rem 2rem;
+    		border: 1px solid #fcd116;
+			color: #333;
+			border-bottom: none;
+			text-transform: capitalize;
+			
+			&:hover {
+				background: #fcd116;
+				color: white;
+			}
+		}
+		
+		&:last-of-type{	
+			border-bottom: 1px solid #fcd116;
+		}
+	}
+	
+}

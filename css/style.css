@@ -74,3 +74,43 @@ body {
   left: 50%;
   transform: translateY(50%) translateX(-50%);
 }
+
+/* line 72, ../scss/style.scss */
+#category {
+  margin: 200px 20%;
+}
+/* line 75, ../scss/style.scss */
+#category span {
+  font-family: "GothamSSm-Black", Arial, sans-serif;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  color: #fcd116;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+/* line 85, ../scss/style.scss */
+#category ul {
+  list-style-type: none;
+  margin: 0 20%;
+  padding: 0;
+  cursor: pointer;
+}
+/* line 91, ../scss/style.scss */
+#category ul li {
+  font-family: "Maitree-Regular", Arial, sans-serif;
+  padding: 1rem 2rem;
+  border: 1px solid #fcd116;
+  color: #333;
+  border-bottom: none;
+  text-transform: capitalize;
+}
+/* line 99, ../scss/style.scss */
+#category ul li:hover {
+  background: #fcd116;
+  color: white;
+}
+/* line 105, ../scss/style.scss */
+#category ul:last-of-type {
+  border-bottom: 1px solid #fcd116;
+}
