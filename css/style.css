@@ -164,3 +164,13 @@ body {
 #category ul:last-of-type, #file ul:last-of-type {
   border-bottom: 1px solid #fcd116;
 }
+
+/* line 157, ../scss/style.scss */
+#file .back i {
+  position: absolute;
+  left: -20%;
+  top: 50%;
+  transform: translate3d(-50%, calc(-50% + 2.5rem), 0);
+  font-size: 5rem;
+  cursor: pointer;
+}

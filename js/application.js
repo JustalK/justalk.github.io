@@ -1,6 +1,7 @@
 let github_directories;
 const category = document.querySelector('#category');
 const file = document.querySelector('#file');
+const back_file_to_category = document.querySelector('#file .back');
 
 const fetch_datas =  async function(url) {
 	try {
@@ -68,6 +69,21 @@ const loading_categories = async function() {
 	create_list(github_directories,ul,category_selected);
 }
 loading_categories();
+
+
+const back_to_category = function() {
+	file.classList.add("not-selected");
+	category.classList.remove("selected");
+}
+back_file_to_category.addEventListener("click", back_to_category);
+
+/**
+const get_token_github = async function() {
+	const fetching = await fetch_datas('https://github.com/login/oauth/authorize?token=a198272979546f10ebe9c8bdd282a50b156c3b93');
+	console.log(fetching);
+}
+get_token_github();
+**/
 
 /**
 const reading_github = async function() {
