@@ -31,16 +31,19 @@ const loading_file = async function(directory_name,file_name) {
 	//return directories;
 }
 
-
+//<i class="material-icons">chevron_right</i>
 const loading_categories = async function() {
 	github_directories = await loading_directories(); 
 	github_directories.map(x => {
 		let ul = category.querySelector('ul');
-		let node = document.createElement("li");
-		node.setAttribute("data-category", x.name);
-		var textnode = document.createTextNode(x.name);
-		node.appendChild(textnode);
-		ul.appendChild(node); 
+		let nodeli = document.createElement("li");
+		let nodei = document.createElement("i");
+		nodeli.setAttribute("data-category", x.name);
+		nodei.setAttribute("class", "material-icons");
+		nodei.appendChild(document.createTextNode("chevron_right"));
+		nodeli.appendChild(document.createTextNode(x.name));
+		nodeli.appendChild(nodei);
+		ul.appendChild(nodeli); 
 	})
 }
 loading_categories();

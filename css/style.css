@@ -19,28 +19,59 @@
   font-weight: normal;
   font-style: normal;
 }
-/* line 15, ../scss/style.scss */
+@font-face {
+  font-family: "MaterialIcons-Regular";
+  src: url("../font/material/MaterialIcons-Regular.eot");
+  src: local("MaterialIcons-Regular"), local("MaterialIcons-Regular"), url("../font/material/MaterialIcons-Regular.eot?#iefix") format("embedded-opentype"), url("../font/material/MaterialIcons-Regular.woff2") format("woff2"), url("../font/material/MaterialIcons-Regular.woff") format("woff"), url("../font/material/MaterialIcons-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 19, ../scss/style.scss */
+.material-icons {
+  font-family: 'MaterialIcons-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* line 44, ../scss/style.scss */
 body {
   margin: 0;
 }
 
-/* line 19, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 #intro {
   position: relative;
   background: #222;
   height: 100vh;
   min-height: 500px;
 }
-/* line 25, ../scss/style.scss */
+/* line 54, ../scss/style.scss */
 #intro div {
   padding: 4rem 20% 0;
   text-align: center;
 }
-/* line 29, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 #intro div .logo {
   width: 80%;
 }
-/* line 33, ../scss/style.scss */
+/* line 62, ../scss/style.scss */
 #intro div .description {
   font-family: "GothamSSm-Black", Arial, sans-serif;
   display: block;
@@ -48,23 +79,23 @@ body {
   margin: 3.5rem;
   color: #ffffff;
 }
-/* line 41, ../scss/style.scss */
+/* line 70, ../scss/style.scss */
 #intro div .excerpt {
   font-family: "Maitree-Regular", Arial, sans-serif;
   text-align: justify;
   color: #a7a7a7;
 }
-/* line 46, ../scss/style.scss */
+/* line 75, ../scss/style.scss */
 #intro div .excerpt::first-line {
   text-indent: 2rem;
 }
-/* line 50, ../scss/style.scss */
+/* line 79, ../scss/style.scss */
 #intro div .excerpt::first-letter {
   color: #fcd116;
   font-weight: bold;
   font-size: 1.5rem;
 }
-/* line 59, ../scss/style.scss */
+/* line 88, ../scss/style.scss */
 #intro .avatar {
   position: absolute;
   border-radius: 50%;
@@ -75,11 +106,11 @@ body {
   transform: translateY(50%) translateX(-50%);
 }
 
-/* line 72, ../scss/style.scss */
+/* line 101, ../scss/style.scss */
 #category {
   margin: 200px 20%;
 }
-/* line 75, ../scss/style.scss */
+/* line 104, ../scss/style.scss */
 #category span {
   font-family: "GothamSSm-Black", Arial, sans-serif;
   text-align: center;
@@ -89,14 +120,14 @@ body {
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
-/* line 85, ../scss/style.scss */
+/* line 114, ../scss/style.scss */
 #category ul {
   list-style-type: none;
   margin: 0 20%;
   padding: 0;
   cursor: pointer;
 }
-/* line 91, ../scss/style.scss */
+/* line 120, ../scss/style.scss */
 #category ul li {
   font-family: "Maitree-Regular", Arial, sans-serif;
   padding: 1rem 2rem;
@@ -104,13 +135,15 @@ body {
   color: #333;
   border-bottom: none;
   text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
 }
-/* line 99, ../scss/style.scss */
+/* line 130, ../scss/style.scss */
 #category ul li:hover {
   background: #fcd116;
   color: white;
 }
-/* line 105, ../scss/style.scss */
+/* line 136, ../scss/style.scss */
 #category ul:last-of-type {
   border-bottom: 1px solid #fcd116;
 }

@@ -12,6 +12,35 @@
 	@include font("maitree","Maitree-Regular","Maitree Regular",normal,normal);
 }
 
+@font-face {
+	@include font("material","MaterialIcons-Regular","MaterialIcons-Regular",normal,normal);
+}
+
+.material-icons {
+  font-family: 'MaterialIcons-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 body {
 	margin: 0;
 }
@@ -95,6 +124,8 @@ body {
 			color: #333;
 			border-bottom: none;
 			text-transform: capitalize;
+			display: flex;
+    		justify-content: space-between;
 			
 			&:hover {
 				background: #fcd116;
