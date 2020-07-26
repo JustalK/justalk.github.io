@@ -53,25 +53,26 @@
 /* line 44, ../scss/style.scss */
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
-/* line 48, ../scss/style.scss */
+/* line 49, ../scss/style.scss */
 #intro {
   position: relative;
   background: #222;
   height: 100vh;
   min-height: 500px;
 }
-/* line 54, ../scss/style.scss */
+/* line 55, ../scss/style.scss */
 #intro div {
   padding: 4rem 20% 0;
   text-align: center;
 }
-/* line 58, ../scss/style.scss */
+/* line 59, ../scss/style.scss */
 #intro div .logo {
   width: 80%;
 }
-/* line 62, ../scss/style.scss */
+/* line 63, ../scss/style.scss */
 #intro div .description {
   font-family: "GothamSSm-Black", Arial, sans-serif;
   display: block;
@@ -79,23 +80,23 @@ body {
   margin: 3.5rem;
   color: #ffffff;
 }
-/* line 70, ../scss/style.scss */
+/* line 71, ../scss/style.scss */
 #intro div .excerpt {
   font-family: "Maitree-Regular", Arial, sans-serif;
   text-align: justify;
   color: #a7a7a7;
 }
-/* line 75, ../scss/style.scss */
+/* line 76, ../scss/style.scss */
 #intro div .excerpt::first-line {
   text-indent: 2rem;
 }
-/* line 79, ../scss/style.scss */
+/* line 80, ../scss/style.scss */
 #intro div .excerpt::first-letter {
   color: #fcd116;
   font-weight: bold;
   font-size: 1.5rem;
 }
-/* line 88, ../scss/style.scss */
+/* line 89, ../scss/style.scss */
 #intro .avatar {
   position: absolute;
   border-radius: 50%;
@@ -106,12 +107,29 @@ body {
   transform: translateY(50%) translateX(-50%);
 }
 
-/* line 101, ../scss/style.scss */
-#category {
-  margin: 200px 20%;
+/* line 100, ../scss/style.scss */
+#page {
+  position: relative;
 }
+
 /* line 104, ../scss/style.scss */
-#category span {
+#category, #file {
+  transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
+  margin: 200px 30%;
+  position: absolute;
+  width: 40%;
+  left: 0;
+}
+/* line 111, ../scss/style.scss */
+#category.selected, #file.selected {
+  transform: translateX(-250%);
+}
+/* line 115, ../scss/style.scss */
+#category.not-selected, #file.not-selected {
+  transform: translateX(250%);
+}
+/* line 119, ../scss/style.scss */
+#category span, #file span {
   font-family: "GothamSSm-Black", Arial, sans-serif;
   text-align: center;
   display: block;
@@ -120,15 +138,14 @@ body {
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
-/* line 114, ../scss/style.scss */
-#category ul {
+/* line 129, ../scss/style.scss */
+#category ul, #file ul {
   list-style-type: none;
-  margin: 0 20%;
   padding: 0;
   cursor: pointer;
 }
-/* line 120, ../scss/style.scss */
-#category ul li {
+/* line 134, ../scss/style.scss */
+#category ul li, #file ul li {
   font-family: "Maitree-Regular", Arial, sans-serif;
   padding: 1rem 2rem;
   border: 1px solid #fcd116;
@@ -138,12 +155,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
-/* line 130, ../scss/style.scss */
-#category ul li:hover {
+/* line 144, ../scss/style.scss */
+#category ul li:hover, #file ul li:hover {
   background: #fcd116;
   color: white;
 }
-/* line 136, ../scss/style.scss */
-#category ul:last-of-type {
+/* line 150, ../scss/style.scss */
+#category ul:last-of-type, #file ul:last-of-type {
   border-bottom: 1px solid #fcd116;
 }
