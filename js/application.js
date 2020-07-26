@@ -12,15 +12,29 @@ const fetch_datas =  async function(url) {
 }
 
 const loading_directories = async function() {
-	const fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/');
-	const infos = await fetching.json();
+	let fetching,infos,infos_directories;
+	if (localStorage.infos_directories) infos_directories = localStorage.getItem("infos_directories");
+	if(!infos_directories) {
+		fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/');
+		infos = await fetching.json();
+		localStorage.setItem("infos_directories", JSON.stringify(infos));
+	} else {
+		infos = JSON.parse(infos_directories);
+	}
 	const directories = infos.filter(x => x.type=="dir" && x.name!="modules");
 	return directories;
 }
 
 const loading_files_in_directory = async function(directory_name) {
-	const fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name);
-	const infos = await fetching.json();
+	let fetching,infos,infos_directory;
+	if (localStorage[directory_name]) infos_directory = localStorage.getItem(directory_name);
+	if(!infos_directory) {
+		fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name);
+		infos = await fetching.json();
+		localStorage.setItem(directory_name, JSON.stringify(infos));
+	} else  {
+		infos = JSON.parse(infos_directory);
+	}
 	return infos;
 }
 
@@ -57,6 +71,7 @@ const category_selected = async function(e) {
     category.classList.add("selected");
     const github_files = await loading_files_in_directory(github_category_selected);
 	let ul = file.querySelector('ul');
+	ul.innerHTML = '';
 	create_list(github_files,ul,category_selected);
 	file.classList.remove("not-selected");
     
@@ -76,14 +91,6 @@ const back_to_category = function() {
 	category.classList.remove("selected");
 }
 back_file_to_category.addEventListener("click", back_to_category);
-
-/**
-const get_token_github = async function() {
-	const fetching = await fetch_datas('https://github.com/login/oauth/authorize?token=a198272979546f10ebe9c8bdd282a50b156c3b93');
-	console.log(fetching);
-}
-get_token_github();
-**/
 
 /**
 const reading_github = async function() {
