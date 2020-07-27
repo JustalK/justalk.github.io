@@ -113,7 +113,7 @@ body {
 }
 
 /* line 104, ../scss/style.scss */
-#category, #file {
+#category, #file, #md {
   transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
   margin: 200px 30%;
   position: absolute;
@@ -121,15 +121,15 @@ body {
   left: 0;
 }
 /* line 111, ../scss/style.scss */
-#category.selected, #file.selected {
+#category.selected, #file.selected, #md.selected {
   transform: translateX(-250%);
 }
 /* line 115, ../scss/style.scss */
-#category.not-selected, #file.not-selected {
+#category.not-selected, #file.not-selected, #md.not-selected {
   transform: translateX(250%);
 }
 /* line 119, ../scss/style.scss */
-#category span, #file span {
+#category span, #file span, #md span {
   font-family: "GothamSSm-Black", Arial, sans-serif;
   text-align: center;
   display: block;
@@ -139,13 +139,13 @@ body {
   font-size: 1.5rem;
 }
 /* line 129, ../scss/style.scss */
-#category ul, #file ul {
+#category ul, #file ul, #md ul {
   list-style-type: none;
   padding: 0;
   cursor: pointer;
 }
 /* line 134, ../scss/style.scss */
-#category ul li, #file ul li {
+#category ul li, #file ul li, #md ul li {
   font-family: "Maitree-Regular", Arial, sans-serif;
   padding: 1rem 2rem;
   border: 1px solid #fcd116;
@@ -156,17 +156,17 @@ body {
   justify-content: space-between;
 }
 /* line 144, ../scss/style.scss */
-#category ul li:hover, #file ul li:hover {
+#category ul li:hover, #file ul li:hover, #md ul li:hover {
   background: #fcd116;
   color: white;
 }
 /* line 150, ../scss/style.scss */
-#category ul:last-of-type, #file ul:last-of-type {
+#category ul:last-of-type, #file ul:last-of-type, #md ul:last-of-type {
   border-bottom: 1px solid #fcd116;
 }
 
 /* line 157, ../scss/style.scss */
-#file .back i {
+#file .back i, #md .back i {
   position: absolute;
   left: -20%;
   top: 50%;
