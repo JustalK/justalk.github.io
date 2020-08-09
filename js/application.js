@@ -4,12 +4,13 @@ const file = document.querySelector('#file');
 const md = document.querySelector('#md');
 const back_file_to_category = document.querySelector('#file .back');
 const back_md_to_file = document.querySelector('#md .back');
+const md_content = document.querySelector('#md .content');
 
 const fetch_datas =  async function(url) {
 	try {
 		return fetch(url);
 	} catch(error) {
-		console.log('Fetch Error :-S', err);	
+		console.log('Fetch Error :-S', err);
 	}
 }
 
@@ -45,24 +46,23 @@ const loading_file = async function(directory_name,file_name) {
 	const fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name+"/"+file_name);
 	const infos = await fetching.json();
 	return infos;
-	console.log(infos);
 }
 
-const create_list = async function(array,list,action,dataset) {
+const create_list = async function(array,list,action,dataset,github_category_selected) {
 	array.map(x => {
 		let nodeli = document.createElement("li");
 		let nodei = document.createElement("i");
 		let name = x.name;
 		name = name.replace(/DEV\_|\.Md/gi,"");
 		name = name.replace(/\_/gi," ");
-		console.log(name);
 		nodeli.setAttribute(dataset, x.name);
+		if(github_category_selected) nodeli.setAttribute("data-category", github_category_selected);
 		nodei.setAttribute("class", "material-icons");
 		nodei.appendChild(document.createTextNode("chevron_right"));
 		nodeli.appendChild(document.createTextNode(name));
 		nodeli.appendChild(nodei);
 		nodeli.addEventListener("click", action);
-		list.appendChild(nodeli); 
+		list.appendChild(nodeli);
 	})
 }
 
@@ -73,12 +73,12 @@ const category_selected = async function(e) {
     const github_files = await loading_files_in_directory(github_category_selected);
 	let ul = file.querySelector('ul');
 	ul.innerHTML = '';
-	create_list(github_files,ul,file_selected,"data-file");
+	create_list(github_files,ul,file_selected,"data-file",github_category_selected);
 	file.classList.remove("not-selected");
 }
 
 const loading_categories = async function() {
-	github_directories = await loading_directories(); 
+	github_directories = await loading_directories();
 	let ul = category.querySelector('ul');
 	create_list(github_directories,ul,category_selected,"data-category");
 }
@@ -96,7 +96,14 @@ const file_selected = async function(e) {
     let github_category_selected = node.dataset.category;
     let github_file_selected = node.dataset.file;
     file.classList.add("selected");
-    //const github_md = await loading_file(github_category_selected,github_file_selected);
+    const github_md = await loading_file(github_category_selected,github_file_selected);
+	const decode = window.atob(github_md.content);
+	console.log(decode);
+	var converter = new showdown.Converter(),
+    text      = decode,
+    html      = converter.makeHtml(text);
+	console.log(html);
+	md_content.innerHTML = html;
 	md.classList.remove("not-selected");
 }
 
@@ -117,6 +124,3 @@ const reading_github = async function() {
 **/
 
 //reading_github();
-
-
-
