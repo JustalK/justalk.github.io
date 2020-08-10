@@ -30,7 +30,6 @@ const loading_directories = async function() {
 
 const loading_files_in_directory = async function(directory_name) {
 	let fetching,infos;
-	console.log(directory_name);
 	if(localStorage.getItem(directory_name) === null) {
 		fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name);
 		infos = await fetching.json();
@@ -43,8 +42,15 @@ const loading_files_in_directory = async function(directory_name) {
 }
 
 const loading_file = async function(directory_name,file_name) {
-	const fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name+"/"+file_name);
-	const infos = await fetching.json();
+	let fetching,infos;
+	if(localStorage.getItem(directory_name+"_"+file_name) === null) {
+		fetching = await fetch_datas('https://api.github.com/repos/justalk/Informations/contents/'+directory_name+"/"+file_name);
+		infos = await fetching.json();
+		localStorage.setItem(directory_name+"_"+file_name, JSON.stringify(infos));
+	} else {
+		let infos_directory = localStorage.getItem(directory_name+"_"+file_name)
+		infos = JSON.parse(infos_directory);
+	}
 	return infos;
 }
 
@@ -100,9 +106,8 @@ const file_selected = async function(e) {
 	const decode = window.atob(github_md.content);
 	console.log(decode);
 	var converter = new showdown.Converter(),
-    text      = decode,
-    html      = converter.makeHtml(text);
-	console.log(html);
+    text = decode,
+    html = converter.makeHtml(text);
 	md_content.innerHTML = html;
 	md.classList.remove("not-selected");
 }
@@ -112,15 +117,5 @@ const back_to_file = function() {
 	file.classList.remove("selected");
 }
 back_md_to_file.addEventListener("click", back_to_file);
-
-/**
-const reading_github = async function() {
-	const github_directories = await loading_directories();
-	const github_files = await loading_files_in_directory(github_directories[0].name);
-	const github_file = await loading_file(github_directories[0].name,github_files[0].name);
-	const decode = window.atob(github_file.content);
-	console.log(decode);
-}
-**/
 
 //reading_github();
